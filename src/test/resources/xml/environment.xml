@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<environment>
+    <parameter>
+        <key>Browser Name</key>
+        <value>Chrome</value>
+    </parameter>
+    <parameter>
+        <key>Browser Count</key>
+        <value>2</value>
+    </parameter>
+    <parameter>
+        <key>Сollector</key>
+        <value>Gradle</value>
+    </parameter>
+</environment>
