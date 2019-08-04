@@ -9,5 +9,5 @@
 ```
 #### 2. Report generation 
 ```
-./gradlew allureServe 
+./gradlew allureReport
 ```
