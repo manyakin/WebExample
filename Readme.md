@@ -1,4 +1,4 @@
-# Web Example
+# Web Example [![Travis](https://travis-ci.org/manyakin/WebExample.svg?branch=master "Travis")](https://travis-ci.org/manyakin/WebExample/builds)
 > Simple example for displaying web automation skills
 
 ## How to use
