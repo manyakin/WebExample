@@ -18,5 +18,4 @@ install: true
 
 jobs:
   include:
-    - script: ./gradlew chrome_headless --no-daemon --console=plain
-      name: "Chrome"
+    - script: ./gradlew test
