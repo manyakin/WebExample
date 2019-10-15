@@ -1,10 +1,22 @@
-dist: trusty
+git:
+  depth: 99999
+
 language: java
-jdk: oraclejdk8
+
+addons:
+  apt:
+    update: true
+  chrome: stable
+
+services:
+  - xvfb
 
 before_install:
-  - chmod +x gradlew 
-  
-script:
-  - ./gradlew test
-  
+  - export CHROME_BIN=/usr/bin/google-chrome
+
+install: true
+
+jobs:
+  include:
+    - script: ./gradlew chrome_headless --no-daemon --console=plain
+      name: "Chrome"
