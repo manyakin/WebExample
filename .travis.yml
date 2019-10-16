@@ -9,13 +9,14 @@ services:
   - xvfb
 
 before_install:
-  - sudo apt-get install -y libappindicator1 fonts-liberation
+  - chmod +x gradlew
   - export CHROME_BIN=/usr/bin/google-chrome
+  - sudo apt-get install -y libappindicator1 fonts-liberation
 
 install: true
 
-jobs:
-  include:
-    - script: ./gradlew clean test --no-daemon --console=plain
-      name: "Chrome"
-    
+before_script:
+  - export GRADLE_OPTS=-Dorg.gradle.daemon=false
+
+script:
+  - ./gradlew clean test
