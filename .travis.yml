@@ -13,7 +13,6 @@ services:
 before_install:
   - chmod +x gradlew
   - export CHROME_BIN=/usr/bin/google-chrome
-  - sudo apt-get install -y libappindicator1 fonts-liberation
 
 install: true
 
@@ -21,4 +20,4 @@ before_script:
   - export GRADLE_OPTS=-Dorg.gradle.daemon=false
 
 script:
-  - ./gradlew test -i
+  - ./gradlew test
