@@ -6,6 +6,9 @@ jdk:
 
 install: true
 
+services:
+  - xvfb
+
 addons:
   apt:
     sources:
