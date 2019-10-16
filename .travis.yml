@@ -4,8 +4,8 @@ jdk: oraclejdk8
 
 addons:
   apt:
-    packages:
-      - google-chrome-stable
+    update: true
+  chrome: stable
 
 services:
   - xvfb
@@ -14,7 +14,6 @@ before_install:
   - chmod +x gradlew
   - export CHROME_BIN=/usr/bin/google-chrome
   - sudo apt-get install -y libappindicator1 fonts-liberation
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
 install: true
 
