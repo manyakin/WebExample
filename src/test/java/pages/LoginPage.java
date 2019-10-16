@@ -23,6 +23,7 @@ public class LoginPage extends WebMethods {
 
     @Step("Отображение ошибок валидации")
     public void viewValidateError() {
+
         click(LOGIN_BUTTON);
         String errorLogin = getText(LOGIN_ERROR);
         Assert.assertEquals(errorLogin, "Обязательное поле", "Не совпадает подсказка!");

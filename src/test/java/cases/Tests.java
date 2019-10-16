@@ -27,8 +27,7 @@ public class Tests extends WebSettings {
 
     @Test(description = "Отображение ошибок валидации на форме авторизации")
     public void viewFullLoginForm() {
-        objHome.openBasicSite()
-               .openAuthForm();
+        objHome.openAuthSite();
         objLogin.viewFullLoginForm()
                 .viewValidateError();
     }

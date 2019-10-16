@@ -24,14 +24,14 @@ public class GeoPositionPage extends WebMethods {
     @Step("Выбор города из списка")
     public void selectCityFromList(City city) {
         click(byText(city.description));
-        check(HomePage.LOGIN_INSIDE_BUTTON);
+        check(HomePage.SEARCH_BLOCK);
     }
 
     @Step("Выбор города при помощи поиска")
     public void selectCityWithSearch(City city) {
         setValue(SEARCH_FIELD, city.description);
         setList(SEARCH_RESULT_LIST, city.description);
-        check(HomePage.LOGIN_INSIDE_BUTTON);
+        check(HomePage.SEARCH_BLOCK);
     }
 
 }

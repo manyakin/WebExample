@@ -11,7 +11,7 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class HomePage extends WebMethods {
 
-    static final By LOGIN_INSIDE_BUTTON = byXpath("/html/body/div[4]/div[2]/div/div[1]/div[1]/div/div[5]");
+    static final By SEARCH_BLOCK = byClassName("supernova-dashboard-search");
 
     private static final By ALERT_GEO_ACCEPT = byText("Всё верно");
     private static final By ALERT_GEO_OTHER = byText("Выбрать другой");
@@ -36,7 +36,8 @@ public class HomePage extends WebMethods {
     public enum Url {
         SITE_LINK("https://hh.ru"),
         SPB_LINK("https://spb.hh.ru/?customDomain=1"),
-        OMSK_LINK("https://omsk.hh.ru/?customDomain=1");
+        OMSK_LINK("https://omsk.hh.ru/?customDomain=1"),
+        AUTH_LINK("https://omsk.hh.ru/account/login?backurl=%2F");
 
         private String description;
         Url(String description) {
@@ -51,9 +52,9 @@ public class HomePage extends WebMethods {
         return this;
     }
 
-    @Step("Переход на форму авторизации")
-    public void openAuthForm() {
-        click(LOGIN_INSIDE_BUTTON);
+    @Step("Переход на страницу авторизации")
+    public void openAuthSite() {
+        open(Url.AUTH_LINK.description);
     }
 
     @Step("Переход на форму выбора города c помощью алерта")
