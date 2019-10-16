@@ -9,12 +9,10 @@ services:
   - xvfb
 
 before_install:
-  - sudo apt-get install -y libappindicator1 fonts-liberation
   - export CHROME_BIN=/usr/bin/google-chrome
 
 install: true
 
 jobs:
   include:
-    - script: ./gradlew chrome_headless --no-daemon --console=plain test
-      name: "Chrome"
+    - script: ./gradlew test

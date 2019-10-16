@@ -17,8 +17,10 @@ dependencies {
 }
 
 test {
+    systemProperties['selenide.browser'] = 'chrome'
+    systemProperties['selenide.headless'] = 'true'
+
     useTestNG {suites 'src/test/resources/xml/parallel.xml'}
-    ignoreFailures = true
 
     testLogging {
         events "passed", "skipped", "failed"
