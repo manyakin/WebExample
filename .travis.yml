@@ -16,6 +16,6 @@ install: true
 
 jobs:
   include:
-    - script: ./gradlew test --no-daemon --console=plain
+    - script: ./gradlew clean test --no-daemon --console=plain
       name: "Chrome"
     
