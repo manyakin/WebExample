@@ -1,24 +1,20 @@
 language: java
-sudo: required
-dist: trusty
-jdk:
-  - oraclejdk8
 
-install: true
+addons:
+  apt:
+    update: true
+  chrome: stable
 
 services:
   - xvfb
 
-addons:
-  apt:
-    sources:
-    - google-chrome
-    packages:
-    - google-chrome-stable
-    
 before_install:
-  - chmod +x gradlew   
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - sudo apt-get install -y libappindicator1 fonts-liberation
+  - export CHROME_BIN=/usr/bin/google-chrome
 
-script:
-  - ./gradlew test
+install: true
+
+jobs:
+  include:
+    - script: ./gradlew chrome_headless --no-daemon --console=plain test
+      name: "Chrome"
