@@ -11,15 +11,13 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class HomePage extends WebMethods {
 
-    static final String LOGIN_TABS = ".login-tabs";
-    private static final By LOGIN_BUTTON = byName("action");
+    static final By LOGIN_INSIDE_BUTTON = byXpath("/html/body/div[4]/div[2]/div/div[1]/div[1]/div/div[5]");
+
     private static final By ALERT_GEO_ACCEPT = byText("Всё верно");
     private static final By ALERT_GEO_OTHER = byText("Выбрать другой");
     private static final By SEARCH_FIELD = byXpath("//input[@data-qa='search-input']");
     private static final String SEARCH_FRAME_BUTTON = "span.supernova-search-submit-text";
-    private static final String LOGIN_FIELD = "label.login-input > input[name=\"username\"]";
     private static final By SEARCH_BUTTON = byXpath("//button[@data-qa='navi-search__button']");
-    private static final String PASSWORD_FIELD = "label.login-input > input[name=\"password\"]";
     private static final By TEXT_GEO_LINK = byXpath("//button[@data-qa='mainmenu_areaSwitcher']");
     private static final By SEARCH_FRAME_FIELD = byXpath("//input[@data-qa='vacancy-serp__query']");
 
@@ -53,6 +51,11 @@ public class HomePage extends WebMethods {
         return this;
     }
 
+    @Step("Переход на форму авторизации")
+    public void openAuthForm() {
+        click(LOGIN_INSIDE_BUTTON);
+    }
+
     @Step("Переход на форму выбора города c помощью алерта")
     public void openSelectCityFormWithAlert() {
         click(ALERT_GEO_OTHER);
@@ -78,13 +81,6 @@ public class HomePage extends WebMethods {
 
         if ($(byCssSelector(SEARCH_FRAME_BUTTON)).exists()) {click(SEARCH_FRAME_BUTTON);}
         else {click(SEARCH_BUTTON);}
-    }
-
-    @Step("Заполнение формы авторизации")
-    public void fillLogin(String login, String password) {
-        setValue(LOGIN_FIELD, login);
-        setValue(PASSWORD_FIELD, password);
-        click(LOGIN_BUTTON);
     }
 
     @Step("Проверка совпадения указанного адреса")

@@ -25,11 +25,12 @@ public class Tests extends WebSettings {
         objEmployer = new EmployerCardPage();
     }
 
-    @Test(description = "Отображение полной формы авторизации")
+    @Test(description = "Отображение ошибок валидации на форме авторизации")
     public void viewFullLoginForm() {
         objHome.openBasicSite()
-               .fillLogin("test@test.ru", "Qwer4432");
-        objLogin.viewFullLoginForm();
+               .openAuthForm();
+        objLogin.viewFullLoginForm()
+                .viewValidateError();
     }
 
     @Test(description = "Проверка соответствия выбранного города через алерт геопозиции")

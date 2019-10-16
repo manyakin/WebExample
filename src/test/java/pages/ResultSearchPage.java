@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.switchTo;
 
 public class ResultSearchPage extends WebMethods {
 
-    private static final String VACANCY_LINK = ".resume-search-item__name > a";
+    private static final By VACANCY_LINK = byXpath("//a[@data-qa='vacancy-serp__vacancy-title']");
     private static final String RESULT_SEARCH_PAGE = "//h1[@data-qa='page-title']";
     private static final By EMPLOYER_LINK = byXpath("//a[@data-qa='vacancy-serp__vacancy-employer']");
 
